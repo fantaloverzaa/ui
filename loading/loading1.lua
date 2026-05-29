@@ -1,13 +1,3 @@
-local CoreGui = game:GetService("CoreGui")
-local loading = CoreGui:FindFirstChild("loading")
-
-while loading do
-    task.wait()
-    loading = CoreGui:FindFirstChild("loading")
-end
-
-loading = CoreGui:FindFirstChild("loading")
-
 local parent = game.CoreGui
 
 local ScreenGui1 = Instance.new("ScreenGui", parent)
