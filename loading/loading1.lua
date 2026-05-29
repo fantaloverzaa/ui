@@ -13,22 +13,22 @@ Frame2.Size = UDim2.new(0, 488, 0, 326)
 Frame2.BorderSizePixel = 0
 Frame2.BackgroundColor3 = Color3.new(1, 1, 1)
 
-local ImageLabel3 = Instance.new("ImageLabel", Frame2)
-ImageLabel3.Image = "rbxassetid://8215072078"
-ImageLabel3.Name = "Background"
-ImageLabel3.BorderColor3 = Color3.new(0, 0, 0)
-ImageLabel3.Size = UDim2.new(0, 488, 0, 326)
-ImageLabel3.BorderSizePixel = 0
-ImageLabel3.BackgroundColor3 = Color3.new(1, 1, 1)
+local Script3 = Instance.new("Script", Frame2)
+Script3.Name = "Drag"
 
-local UICorner4 = Instance.new("UICorner", ImageLabel3)
-UICorner4.CornerRadius = UDim.new(0, 4)
+local ImageLabel4 = Instance.new("ImageLabel", Frame2)
+ImageLabel4.Image = "rbxassetid://7224215094"
+ImageLabel4.Name = "Background"
+ImageLabel4.BorderColor3 = Color3.new(0, 0, 0)
+ImageLabel4.Size = UDim2.new(0, 488, 0, 326)
+ImageLabel4.BorderSizePixel = 0
+ImageLabel4.BackgroundColor3 = Color3.new(1, 1, 1)
 
-local UICorner5 = Instance.new("UICorner", Frame2)
+local UICorner5 = Instance.new("UICorner", ImageLabel4)
 UICorner5.CornerRadius = UDim.new(0, 4)
 
-local Script6 = Instance.new("Script", Frame2)
-Script6.Name = "Drag"
+local UICorner6 = Instance.new("UICorner", Frame2)
+UICorner6.CornerRadius = UDim.new(0, 4)
 
 local TextLabel7 = Instance.new("TextLabel", Frame2)
 TextLabel7.TextColor3 = Color3.new(1, 1, 1)
@@ -50,13 +50,13 @@ Script8.Name = "script"
 local TextLabel9 = Instance.new("TextLabel", Frame2)
 TextLabel9.TextColor3 = Color3.new(1, 1, 1)
 TextLabel9.BorderColor3 = Color3.new(0, 0, 0)
-TextLabel9.Text = "Loader"
-TextLabel9.TextSize = 33
+TextLabel9.Text = "Xas Loader"
+TextLabel9.TextSize = 22
 TextLabel9.Font = Enum.Font.Code
 TextLabel9.BackgroundTransparency = 1
-TextLabel9.Position = UDim2.new(0.0471311472, 0, 0.0214723926, 0)
+TextLabel9.Position = UDim2.new(-0.0245901644, 0, 0.0214723926, 0)
 TextLabel9.Name = "Title"
-TextLabel9.Size = UDim2.new(0, 75, 0, 19)
+TextLabel9.Size = UDim2.new(0, 167, 0, 19)
 TextLabel9.BorderSizePixel = 0
 TextLabel9.BackgroundColor3 = Color3.new(1, 1, 1)
 
@@ -65,7 +65,7 @@ TextLabel10.TextColor3 = Color3.new(1, 1, 1)
 TextLabel10.BorderColor3 = Color3.new(0, 0, 0)
 TextLabel10.Text = "%0"
 TextLabel10.TextSize = 22
-TextLabel10.Font = Enum.Font.Code
+TextLabel10.Font = Enum.Font.Garamond
 TextLabel10.BackgroundTransparency = 1
 TextLabel10.Position = UDim2.new(0.422131151, 0, 0.57055217, 0)
 TextLabel10.Name = "Number"
@@ -85,13 +85,10 @@ TextButton11.Size = UDim2.new(0, 28, 0, 28)
 TextButton11.BorderSizePixel = 0
 TextButton11.BackgroundColor3 = Color3.new(1, 0.494118, 0.494118)
 
-local UICorner12 = Instance.new("UICorner", TextButton11)
-
-local Script13 = Instance.new("Script", TextButton11)
-Script13.Name = "script3"
+local UICorner13 = Instance.new("UICorner", TextButton11)
 
 spawn(function()
-local script = Script6
+local script = Script3
 local userInputService = game:GetService("UserInputService")
 local tweenService = game:GetService("TweenService")
 
@@ -127,14 +124,7 @@ local startPos
 
 local function update(input)
 local delta = input.Position - dragStart
-
-local newPos = UDim2.new(
-startPos.X.Scale,
-startPos.X.Offset + delta.X,
-startPos.Y.Scale,
-startPos.Y.Offset + delta.Y
-)
-
+local newPos = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 frame.Position = newPos
 
 tweenService:Create(shadow, TweenInfo.new(0.08), {
@@ -210,6 +200,7 @@ elseif v:IsA("ImageLabel") or v:IsA("ImageButton") then
 TweenService:Create(v, TweenInfo.new(1), {ImageTransparency = 1, BackgroundTransparency = 1}):Play()
 end
 end
+
 task.wait(1)
 gui:Destroy()
 end
@@ -236,7 +227,7 @@ fadeFrame()
 end)
 
 spawn(function()
-local script = Script13
+local script = Instance.new("LocalScript", TextButton11)
 local button = script.Parent
 local main = script.Parent.Parent
 local gui = main.Parent
