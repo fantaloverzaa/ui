@@ -729,23 +729,3 @@ end)
 esp.player_removed = players.PlayerRemoving:Connect(function(v)
     esp:remove_object(v)
 end)
-
-flags = { -- basically a substitute for ur ui flags (flags["wahdiuawdhwa"])
-    ["Enabled"] = true;
-    ["Names"] = true; 
-    ["Name_Color"] = { Color = rgb(255, 255, 255) };
-    ["Boxes"] = true;
-    ["Box_Type"] = "Normal";
-    ["Box_Color"] = { Color = rgb(255, 255, 255) };
-    ["Healthbar"] = true; 
-    ["Health_High"] = { Color = rgb(0, 255, 0) };
-    ["Health_Low"] = { Color = rgb(255, 0, 0) };
-    ["Distance"] = true;
-    ["Weapon"] = true;
-    ["Skeletons"] = true;
-    ["Skeletons_Color"] = { Color = rgb(255, 255, 255) };
-    ["Distance_Color"] = { Color = rgb(255, 255, 255) };
-    ["Weapon_Color"] = { Color = rgb(255, 255, 255) }
-}; 
-task.wait()
-esp.refresh_elements()
